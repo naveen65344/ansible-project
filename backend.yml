@@ -67,6 +67,6 @@
         login_password: ExpenseApp@1
         login_host: mysql.daws83s.shop
         state: import
-        target: app/schema/backend.sql
+        target: /app/schema/backend.sql
       
    
