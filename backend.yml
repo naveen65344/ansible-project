@@ -68,5 +68,11 @@
         login_host: mysql.daws83s.shop
         state: import
         target: /app/schema/backend.sql
+
+
+    - name: ansible to restart
+      ansible.builtin.service
+        name: backend
+        state: restart    
       
    
