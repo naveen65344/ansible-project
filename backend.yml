@@ -40,7 +40,12 @@
     - name: installing dependencies
       ansible.builtin.command: npm install
       args:
-        chdir: /app  
+        chdir: /app 
+
+    - name: Copy a file to remote host
+      ansible.builtin.copy:
+        src: backend.service  # Local file you want to copy
+        dest:  /etc/systemd/system/backend.service  # Where you want to copy the file on the remote host
 
 
    
