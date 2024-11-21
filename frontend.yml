@@ -18,3 +18,23 @@
        path: /usr/share/nginx/html  # Directory path to be removed
        state: absent  # Ensures the directory is removed
     
+
+    - name: Remove a directory
+      ansible.builtin.file:
+       path: /usr/share/nginx/html  # Directory path to be removed
+       state: present  # Ensures the directory is removed
+
+    - name: Download file from URL
+      ansible.builtin.get_url:
+        url: https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip
+
+        dest:   /tmp/frontend.zip   
+
+
+
+    - name: Extract an archive
+      ansible.builtin.unarchive:
+        src: /tmp/frontend.zip  # Path to the archive file
+        dest: /usr/share/nginx/html  # Directory where the archive will be extracted
+        remote_src: yes      
+    
