@@ -12,13 +12,22 @@
       ansible.builtin.service:
         name: mysqld
         state: started
-        enabled: yes    
+        enabled: yes 
+    - name: installing pip
+      ansiblebuiltin.pip:
+        name:  PyMySQL  
+        state: present  
 
 
     - name: Create the MySQL database
-      community.mysql.mysql_db:
+      community.mysql.mysql_info:
         name: mysql
-        state: present
+      
         login_user: root
         login_password: ExpenseApp@1
         login_host: mysql.daws83s.shop
+      register: mysql_info
+
+    - name: creating database passowrd
+      ansible.builtin.command:   mysql_secure_installation --set-root-pass ExpenseApp@1
+      when: mysql_info.failed is true   
