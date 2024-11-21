@@ -30,4 +30,16 @@
         url: https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip
 
         dest:   /tmp/backend.zip 
+
+    - name: Unzip the file
+      ansible.builtin.unarchive:
+        src:  /tmp/backend.zip 
+        dest: /app
+        remote_src: yes    
+
+
+    - name: Disable the nodejs module
+      ansible.builtin.command:  npm install
+       chdir:/app
+
         
