@@ -13,9 +13,14 @@
       ansible.builtin.package:
         name: nodejs
         state: present  
-        
+
     - name: Create user 'expense'
       ansible.builtin.user:
         name: expense
         state: present
+
+    - name: Ensure the directory /path/to/directory exists
+      ansible.builtin.file:
+        path: /app
+        state: directory    
         
