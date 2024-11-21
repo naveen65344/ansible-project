@@ -61,7 +61,7 @@
 
     - name: Create the MySQL database
       community.mysql.mysql_db:
-        name: mysql
+        name: all
       
         login_user: root
         login_password: ExpenseApp@1
