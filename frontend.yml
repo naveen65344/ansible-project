@@ -12,3 +12,9 @@
         name: nginx
         state: started   
         enabled: yes
+
+    - name: Remove a directory
+      ansible.builtin.file:
+       path: /usr/share/nginx/html  # Directory path to be removed
+       state: absent  # Ensures the directory is removed
+    
