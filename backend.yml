@@ -56,7 +56,7 @@
         state: present  
       loop:
        -  mysql  
-       - cryptography
+       -  cryptography
 
     - name: Create the MySQL database
       community.mysql.mysql_info:
