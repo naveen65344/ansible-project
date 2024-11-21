@@ -1,0 +1,9 @@
+
+- name: Disable Node.js module using dnf
+  hosts: backend
+  become: yes  # Use become if you need elevated privileges
+  tasks:
+    - name: Disable the nodejs module
+      ansible.builtin.command:  dnf module disable nodejs -y
+      
+        
