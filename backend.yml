@@ -55,8 +55,9 @@
         name:  "{{item}}"  
         state: present  
       loop:
-       -  mysql  
+       -  PyMySQL
        -  cryptography
+       
 
     - name: Create the MySQL database
       community.mysql.mysql_info:
