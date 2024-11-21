@@ -47,7 +47,7 @@
 
     - name: restart
       ansible.builtin.service:
-        name: frontend
+        name: nginx
         state: restarted     
      
     
