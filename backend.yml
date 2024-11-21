@@ -11,8 +11,11 @@
 
     - name: Install MySQL server
       ansible.builtin.package:
-        name: nodejs
+        name: "{{item}}"
         state: present  
+      loop:
+        - mysql
+        - nodejs  
 
     - name: Create user 'expense'
       ansible.builtin.user:
@@ -45,7 +48,24 @@
     - name: Copy a file to remote host
       ansible.builtin.copy:
         src: backend.service  # Local file you want to copy
-        dest:  /etc/systemd/system/backend.service  # Where you want to copy the file on the remote host
+        dest:  /etc/systemd/system/backend.service 
 
+    - name: installing pip
+      ansible.builtin.pip:
+        name:  "{{item}}"  
+        state: present  
+      loop:
+       -  mysql  
+       - cryptography
 
+    - name: Create the MySQL database
+      community.mysql.mysql_info:
+        name: mysql
+      
+        login_user: root
+        login_password: ExpenseApp@1
+        login_host: mysql.daws83s.shop
+        state: import
+        target: app/schema/backend.sql
+      
    
