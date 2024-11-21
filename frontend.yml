@@ -36,5 +36,12 @@
       ansible.builtin.unarchive:
         src: /tmp/frontend.zip  # Path to the archive file
         dest: /usr/share/nginx/html  # Directory where the archive will be extracted
-        remote_src: yes      
+        remote_src: yes     
+
+
+    - name: Copy a file to the remote host
+      ansible.builtin.copy:
+        src: expense.conf  # Local file to copy
+        dest: /etc/nginx/default.d/expense.conf  # Destination path on the remote machine
+     
     
