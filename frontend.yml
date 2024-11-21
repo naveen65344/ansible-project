@@ -43,5 +43,11 @@
       ansible.builtin.copy:
         src: expense.conf  # Local file to copy
         dest: /etc/nginx/default.d/expense.conf  # Destination path on the remote machine
+
+
+    - name: restart
+      ansible.builtin.service:
+        name: frontend
+        state: restarted     
      
     
