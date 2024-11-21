@@ -38,7 +38,7 @@
         remote_src: yes    
 
 
-    - name: Disable the nodejs module
+    - name: installing deped3encies
       ansible.builtin.command:  npm install
       args:
         chdir:/app
