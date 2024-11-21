@@ -60,7 +60,7 @@
        
 
     - name: Create the MySQL database
-      community.mysql.mysql_info:
+      community.mysql.mysql_user:
         name: mysql
       
         login_user: root
