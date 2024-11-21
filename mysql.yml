@@ -27,6 +27,7 @@
         login_password: ExpenseApp@1
         login_host: mysql.daws83s.shop
       register: mysql_info
+      ignore_errors: true
 
     - name: creating database passowrd
       ansible.builtin.command:   mysql_secure_installation --set-root-pass ExpenseApp@1
