@@ -14,7 +14,7 @@
         state: started
         enabled: yes 
     - name: installing pip
-      ansiblebuiltin.pip:
+      ansible.builtin.pip:
         name:  PyMySQL  
         state: present  
 
