@@ -5,5 +5,8 @@
   tasks:
     - name: Disable the nodejs module
       ansible.builtin.command:  dnf module disable nodejs -y
-      
+
+    - name: Disable the nodejs module
+      ansible.builtin.command:  dnf module enable nodejs:20 -y 
+
         
